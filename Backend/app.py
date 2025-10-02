@@ -588,6 +588,43 @@ def cleanup_users():
             'success': False,
             'message': str(e)
         })
+@app.route('/api/set-sensitivity', methods=['POST'])
+def set_sensitivity():
+    """Adjust face detection sensitivity"""
+    try:
+        data = request.json
+        sensitivity = float(data.get('sensitivity', 0.5))
+        
+        # Validate range
+        sensitivity = max(0.0, min(1.0, sensitivity))
+        
+        # Update detector sensitivity
+        face_detector.set_sensitivity(sensitivity)
+        
+        return jsonify({
+            'success': True,
+            'message': f'Sensitivity set to {sensitivity}',
+            'sensitivity': sensitivity,
+            'confidence_threshold': face_detector.min_detection_confidence
+        })
+        
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'Error setting sensitivity: {str(e)}'
+        })
+
+@app.route('/api/camera-settings', methods=['GET'])
+def get_camera_settings():
+    """Get current camera and detection settings"""
+    return jsonify({
+        'success': True,
+        'sensitivity': face_detector.sensitivity,
+        'min_detection_confidence': face_detector.min_detection_confidence,
+        'min_tracking_confidence': face_detector.min_tracking_confidence,
+        'mediapipe_available': face_detector.mediapipe_available
+    })    
+    
 
 # Error handlers
 @app.errorhandler(404)

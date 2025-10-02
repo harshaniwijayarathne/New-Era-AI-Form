@@ -434,13 +434,13 @@ body {
 }
 
 .welcome-message h2 {
-  color: #1f2937;
+  color: white;
   margin-bottom: 1rem;
   font-size: 2rem;
 }
 
 .welcome-message p {
-  color: #6b7280;
+  color: red;
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
@@ -461,7 +461,7 @@ body {
 
 .user-info p {
   margin: 0.5rem 0;
-  color: #374151;
+  color: white;
 }
 
 .features {
@@ -1067,4 +1067,152 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.enhanced-camera {
+  filter: contrast(1.1) brightness(1.05) saturate(1.1);
+  transform: scaleX(-1); /* Mirror effect for natural feel */
+}
+
+.camera-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.camera-quality {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(79, 70, 229, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.camera-quality span {
+  font-weight: 600;
+  color: #4f46e5;
+}
+
+/* Focus Guide Overlay */
+.focus-guide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* .focus-circle {
+  width: 200px;
+  height: 200px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+} */
+
+.focus-text {
+  margin-top: 220px;
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+/* Camera Tips */
+.camera-tips {
+  background: rgba(16, 185, 129, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  border-left: 4px solid #10b981;
+  margin-top: 1.5rem;
+}
+
+.camera-tips h3 {
+  color: #059669;
+  margin-bottom: 1rem;
+}
+
+.camera-tips ul {
+  list-style: none;
+}
+
+.camera-tips li {
+  padding: 0.3rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Sensitivity Controls */
+.sensitivity-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 10px;
+}
+
+.sensitivity-slider {
+  flex: 1;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.sensitivity-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #4f46e5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sensitivity-value {
+  font-weight: 600;
+  color: #4f46e5;
+  min-width: 60px;
+}
+
+/* Enhanced pulse animation */
+@keyframes pulse {
+  0%, 100% { 
+    border-color: rgba(255, 255, 255, 0.8);
+    transform: scale(1);
+  }
+  50% { 
+    border-color: rgba(79, 70, 229, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive camera */
+@media (max-width: 768px) {
+  .camera-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+ 
+  .focus-text {
+    margin-top: 170px;
+    font-size: 0.9rem;
+  }
 }
