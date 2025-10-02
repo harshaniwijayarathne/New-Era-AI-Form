@@ -129,15 +129,15 @@ const GestureInterface = ({ onRegistrationStart, onGuestAccess }) => {
         
         <div className="gesture-instructions">
           <div className={`gesture-option ${gestureDetected === 'left' ? 'active' : ''}`}>
-            <div className="gesture-icon">👈</div>
-            <span>Move Head LEFT = YES</span>
-            <div className="gesture-demo">Tilt head to left shoulder</div>
+            <div className="gesture-icon">👉</div>
+            <span>Move Head Right = YES</span>
+            <div className="gesture-demo">Tilt head to right shoulder</div>
           </div>
           
           <div className={`gesture-option ${gestureDetected === 'right' ? 'active' : ''}`}>
-            <div className="gesture-icon">👉</div>
-            <span>Move Head RIGHT = NO</span>
-            <div className="gesture-demo">Tilt head to right shoulder</div>
+            <div className="gesture-icon">👈</div>
+            <span>Move Head Left = NO</span>
+            <div className="gesture-demo">Tilt head to left shoulder</div>
           </div>
         </div>
         
